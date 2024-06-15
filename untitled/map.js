@@ -22,17 +22,20 @@
         .attr("x", mapWidth - 200) // Position from the left
         .attr("y", 0) // Position from the top
         .attr("width", 200)
-        .attr("height", 200)
+        .attr("height", 600) // Increased height to accommodate more content
         .append("xhtml:div")
         .attr("id", "messageBox")
         .style("border", "1px solid black")
-        .style("padding", "2px");
+        .style("padding", "5px")
+        .style("background-color", "white"); // Ensure visibility against the map
 
     messageBox.append("xhtml:h3")
         .text("Top 3 Decks");
 
-    messageBox.append("xhtml:ul")
-        .attr("id", "topDecks");
+    const topDecksList = messageBox.append("xhtml:ul")
+        .attr("id", "topDecks")
+        .style("list-style-type", "none") // Remove default list styling
+        .style("padding", "0");
 
     function clicked(event, d) {
         if (countrySet.has(d.properties.name)) {
@@ -71,11 +74,23 @@
                 // Update the message box with the top 3 decks
                 const topDecksList = d3.select("#topDecks");
                 topDecksList.selectAll("li").remove(); // Clear the list
-                topDecksList.selectAll("li")
+
+                const deckItems = topDecksList.selectAll("li")
                     .data(topDecks)
                     .enter()
                     .append("li")
-                    .text(deck => `${deck.Decks}: ${deck[d.properties.name]}`);
+                    .style("margin-bottom", "10px"); // Add spacing between items
+
+                deckItems.append("p")
+                    .text(deck => `${deck.Decks}: ${deck[d.properties.name]}`)
+                    .style("margin", "0"); // Remove default margins
+
+                deckItems.append("img")
+                    .attr("src", deck => deck.ImagePath)
+                    .attr("alt", deck => deck.Decks)
+                    .style("width", "100px")
+                    .style("height", "auto")
+                    .style("display", "block"); // Ensure each image is displayed on a new line
             });
         }
     }
@@ -84,7 +99,7 @@
     d3.csv("dataMapTopDeck.csv").then(data => {
         const countryNames = Object.keys(data[0]);
         countryNames.forEach(name => {
-            if (name !== "") {
+            if (name !== "" && name !== "Decks" && name !== "ImagePath") {
                 countrySet.add(name);
             }
         });

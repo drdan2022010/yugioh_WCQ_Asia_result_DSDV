@@ -1,26 +1,26 @@
-Decks,Hongkong,Taiwan,China,Malaysia,Singapore,Indonesia,Philippines
-Snake-eye,3,2,16,3,7,4,5
-Tenpai Dragon,1,0,13,1,1,5,0
-Centu-lon,0,0,3,0,0,1,0
-Gimmick Puppet,0,0,2,0,0,0,0
-Yubel,0,0,4,0,0,1,1
-Dragon Link,0,0,2,0,0,0,0
-Voiceless Voice,0,0,2,0,2,2,2
-Runick,1,0,2,0,1,0,0
-Labrynth,0,0,1,0,0,0,0
-Rescue-ace,0,0,1,0,1,0,1
-Sunavalon,0,0,1,0,0,0,0
-Salamangreat,0,0,1,0,0,0,0
-Floowandereeze,0,0,0,0,0,1,0
-Tearlaments,0,0,0,0,0,1,0
-Evil Twin,0,0,0,0,0,1,0
-Vaalmonica,0,0,0,0,0,1,0
-Fire King,1,0,0,0,0,1,1
-Horus,0,0,0,0,0,1,0
-Ritual Beast,0,0,1,0,0,0,0
-Chimera,1,0,1,0,0,0,1
-Branded,1,0,2,0,0,0,0
-Trap Trix,0,0,0,0,1,0,0
-Paleozoic,0,0,0,0,1,0,0
-Spright,0,0,0,0,1,0,0
-Memento,0,1,0,0,1,0,0
+Decks,Hongkong,Taiwan,China,Malaysia,Singapore,Indonesia,Philippines,ImagePath
+Snake-eye,3,2,16,3,7,4,5,deck_images/snake-eyes.jpg
+Tenpai Dragon,1,0,13,1,1,5,0,deck_images/tenpai-dragon.png
+Centu-lon,0,0,3,0,0,1,0,deck_images/centu-lon.png
+Gimmick Puppet,0,0,2,0,0,0,0,deck_images/gimmick_puppet.jpg
+Yubel,0,0,4,0,0,1,1,deck_images/yubel.png
+Dragon Link,0,0,2,0,0,0,0,deck_images/dragon-link.png
+Voiceless Voice,0,0,2,0,2,2,2,deck_images/voiceless-voice.jpg
+Runick,1,0,2,0,1,0,0,deck_images/runick.png
+Labrynth,0,0,1,0,0,0,0,deck_images/labrynth.jpg
+Rescue-ace,0,0,1,0,1,0,1,deck_images/rescue_ace.jpg
+Sunavalon,0,0,1,0,0,0,0,deck_images/sunavalon.jpg
+Salamangreat,0,0,1,0,0,0,0,deck_images/salamangreat.jpg
+Floowandereeze,0,0,0,0,0,1,0,deck_images/floowandereeze.jpg
+Tearlaments,0,0,0,0,0,1,0,deck_images/tearlaments.jpg
+Evil Twin,0,0,0,0,0,1,0,deck_images/evil_twin.jpg
+Vaalmonica,0,0,0,0,0,1,0,deck_images/vaalmonica.jpg
+Fire King,1,0,0,0,0,1,1,deck_images/fire-king.png
+Horus,0,0,0,0,0,1,0,deck_images/horus.jpg
+Ritual Beast,0,0,1,0,0,0,0,deck_images/ritual_beast.jpg
+Chimera,1,0,1,0,0,0,1,deck_images/chimera.jpg
+Branded,1,0,2,0,0,0,0,deck_images/branded.jpg
+Trap Trix,0,0,0,0,1,0,0,deck_images/trap_trix.jpg
+Paleozoic,0,0,0,0,1,0,0,deck_images/paleozoic.jpg
+Spright,0,0,0,0,1,0,0,deck_images/spright.jpg
+Memento,0,1,0,0,1,0,0,deck_images/memento.jpg
