@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a; 
+    color: #f3f3f3; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: #f3f3f3; 
+    border: 1px solid #cccccc;
+    border-radius: 5px; 
+    padding: 10px; 
+    display: none;
+    color: #333; 
+}
+
+.tooltip-image {
+    display: block;
+    margin: auto;
+    width: 120px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.arc text {
+    font: 12px sans-serif;
+    text-anchor: middle;
+}
+
+.arc path {
+    stroke: #000;
+    transition: fill 0.3s ease;
+}
+
+.arc:hover path {
+    fill: #777; 
+}
+
+.header {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #f3f3f3; 
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    gap: 50px;
+    padding: 20px; 
+}
+
+.chart-label {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #f3f3f3; 
+}
+
+.deck-label {
+    fill: #f3f3f3; 
+}
+
+.line {
+    stroke: #f3f3f3;
+}
+
+.next-button {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background-color: #333; 
+    color: #f3f3f3; 
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.next-button:hover {
+    background-color: #444; 
+}
+
+
+
+  
