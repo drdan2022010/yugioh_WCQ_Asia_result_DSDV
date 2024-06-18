@@ -4,18 +4,57 @@
     <title>Map Display</title>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
         .container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .map {
+            position: relative;
+            width: 800px;
+            height: 800px;
+            border: 2px solid #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+        #messageBox {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 220px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #333;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+        }
+        #messageBox h3 {
+            margin-top: 0;
+        }
+        #topDecks li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="map">
-        <svg id="map" width="800" height="800"></svg>
+        <svg id="map"></svg>
+        <div id="messageBox">
+            <h3>Top 3 Decks</h3>
+            <ul id="topDecks"></ul>
+        </div>
     </div>
-
 </div>
 <script src="map.js"></script>
 </body>

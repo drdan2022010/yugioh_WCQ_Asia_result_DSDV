@@ -1,10 +1,9 @@
 (function() {
-    const mapWidth = 800; // Updated width
-    const mapHeight = 800; // Updated height
+    const mapWidth = 800;
+    const mapHeight = 800;
 
     const svg2 = d3.select("#map");
     const g = svg2.append("g");
-    svg2.style("border", "1px solid black");
 
     const zoom = d3.zoom()
         .scaleExtent([1, 8])
@@ -17,25 +16,7 @@
     let path;
     let lastClicked;
 
-    // Create a message box inside the SVG
-    const messageBox = svg2.append("foreignObject")
-        .attr("x", mapWidth - 200) // Position from the left
-        .attr("y", 0) // Position from the top
-        .attr("width", 200)
-        .attr("height", 600) // Increased height to accommodate more content
-        .append("xhtml:div")
-        .attr("id", "messageBox")
-        .style("border", "1px solid black")
-        .style("padding", "5px")
-        .style("background-color", "white"); // Ensure visibility against the map
-
-    messageBox.append("xhtml:h3")
-        .text("Top 3 Decks");
-
-    const topDecksList = messageBox.append("xhtml:ul")
-        .attr("id", "topDecks")
-        .style("list-style-type", "none") // Remove default list styling
-        .style("padding", "0");
+    const messageBox = d3.select("#messageBox");
 
     function clicked(event, d) {
         if (countrySet.has(d.properties.name)) {
@@ -60,37 +41,29 @@
                 lastClicked = d;
             }
 
-            // Load the data and update the message box
             d3.csv("dataMapTopDeck.csv").then(data => {
-                // Filter out decks with a count of 0 for the clicked country
                 const filteredData = data.filter(deck => deck[d.properties.name] > 0);
-
-                // Sort the remaining decks by popularity
                 filteredData.sort((a, b) => b[d.properties.name] - a[d.properties.name]);
-
-                // Select the top 3 decks
                 const topDecks = filteredData.slice(0, 3);
-
-                // Update the message box with the top 3 decks
                 const topDecksList = d3.select("#topDecks");
-                topDecksList.selectAll("li").remove(); // Clear the list
+                topDecksList.selectAll("li").remove();
 
                 const deckItems = topDecksList.selectAll("li")
                     .data(topDecks)
                     .enter()
                     .append("li")
-                    .style("margin-bottom", "10px"); // Add spacing between items
+                    .style("margin-bottom", "10px");
 
                 deckItems.append("p")
                     .text(deck => `${deck.Decks}: ${deck[d.properties.name]}`)
-                    .style("margin", "0"); // Remove default margins
+                    .style("margin", "0");
 
                 deckItems.append("img")
                     .attr("src", deck => deck.ImagePath)
                     .attr("alt", deck => deck.Decks)
                     .style("width", "100px")
                     .style("height", "auto")
-                    .style("display", "block"); // Ensure each image is displayed on a new line
+                    .style("display", "block");
             });
         }
     }
@@ -114,9 +87,7 @@
                 .data(geoData.features)
                 .enter().append("path")
                 .attr("d", path)
-                .attr("fill", function(d) {
-                    return countrySet.has(d.properties.name) ? colorScale(d.properties.name) : "#ccc";
-                })
+                .attr("fill", d => countrySet.has(d.properties.name) ? colorScale(d.properties.name) : "#ccc")
                 .attr("stroke", "#333")
                 .attr("stroke-width", 0.5)
                 .on("click", clicked);
@@ -124,14 +95,10 @@
             g.selectAll("text")
                 .data(geoData.features)
                 .enter().append("text")
-                .attr("transform", function(d) {
-                    return "translate(" + path.centroid(d) + ")";
-                })
+                .attr("transform", d => `translate(${path.centroid(d)})`)
                 .attr("text-anchor", "middle")
-                .style("font-size", "20px") // Set the font size here
-                .text(function(d) {
-                    return countrySet.has(d.properties.name) ? d.properties.name : "";
-                });
+                .style("font-size", "20px")
+                .text(d => countrySet.has(d.properties.name) ? d.properties.name : "");
         });
     });
 
