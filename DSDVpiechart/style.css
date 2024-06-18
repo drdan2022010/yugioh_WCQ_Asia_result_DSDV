@@ -42,13 +42,42 @@ body {
     fill: #777; 
 }
 
+.header-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
 .header {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    position: relative;
     font-size: 24px;
     font-weight: bold;
     color: #f3f3f3; 
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.header:hover .header-tooltip {
+    display: block;
+}
+
+.header-tooltip {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #f3f3f3;
+    padding: 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .chart-container {
@@ -91,7 +120,3 @@ body {
 .next-button:hover {
     background-color: #444; 
 }
-
-
-
-  

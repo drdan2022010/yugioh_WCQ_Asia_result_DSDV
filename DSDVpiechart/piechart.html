@@ -6,18 +6,22 @@
     <title>Yu-Gi-Oh! Deck Visualization</title>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
-    <div class="header">Yu-Gi-Oh! World Championship Asia Qualifier 2024 </div>
+    <div class="header-container">
+        <div class="header">
+            Yu-Gi-Oh! World Championship Asia Qualifier 2024
+            <div class="header-tooltip">8 Country, 20 tournaments<br>More than 2500 players participate<br>Only top 1 have invite to the Yu-Gi-Oh! World Championship Asia Qualifier 2024 Final</div>
+        </div>
+    </div>
     <div class="chart-container">
         <div>
             <svg id="chart1" width="480" height="500"></svg>
-            <div class="chart-label">Deck Count (only Deck that get Top 8 will count here)</div>
+            <div class="chart-label">Top 8 Finishers</div>
         </div>
         <div>
             <svg id="chart2" width="480" height="500"></svg>
-            <div class="chart-label">Top 1 Count (only deck that win tournament will count here)</div>
+            <div class="chart-label">Top 1 Finishers</div>
         </div>
     </div>
     <div class="tooltip">
