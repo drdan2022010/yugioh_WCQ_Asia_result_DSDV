@@ -83,8 +83,23 @@ d3.csv("piechart.csv").then(data => {
             tooltipText.html(`Deck: ${d.data.deck}<br>Top Count: ${d.data.topCount}<br>Percentage: ${percentage}%`);
         })
         .on("mousemove", function(event) {
-            tooltip.style("left", (event.pageX + 5) + "px")
-                .style("top", (event.pageY - 28) + "px");
+            const tooltipWidth = tooltip.node().offsetWidth;
+            const tooltipHeight = tooltip.node().offsetHeight;
+            let x = event.pageX + 5;
+            let y = event.pageY - 28;
+
+            // Adjust if the tooltip exceeds the window width
+            if (x + tooltipWidth > window.innerWidth) {
+                x = window.innerWidth - tooltipWidth - 5;
+            }
+
+            // Adjust if the tooltip exceeds the window height
+            if (y + tooltipHeight > window.innerHeight) {
+                y = window.innerHeight - tooltipHeight - 5;
+            }
+
+            tooltip.style("left", x + "px")
+                   .style("top", y + "px");
         })
         .on("mouseout", function() {
             tooltip.style("display", "none");
@@ -126,8 +141,23 @@ d3.csv("piechart.csv").then(data => {
             tooltipText.html(`Deck: ${d.data.deck}<br>Top 1 Count: ${d.data.top1Count}<br>Percentage: ${percentage}%`);
         })
         .on("mousemove", function(event) {
-            tooltip.style("left", (event.pageX + 5) + "px")
-                .style("top", (event.pageY - 28) + "px");
+            const tooltipWidth = tooltip.node().offsetWidth;
+            const tooltipHeight = tooltip.node().offsetHeight;
+            let x = event.pageX + 5;
+            let y = event.pageY - 28;
+
+            // Adjust if the tooltip exceeds the window width
+            if (x + tooltipWidth > window.innerWidth) {
+                x = window.innerWidth - tooltipWidth - 5;
+            }
+
+            // Adjust if the tooltip exceeds the window height
+            if (y + tooltipHeight > window.innerHeight) {
+                y = window.innerHeight - tooltipHeight - 5;
+            }
+
+            tooltip.style("left", x + "px")
+                   .style("top", y + "px");
         })
         .on("mouseout", function() {
             tooltip.style("display", "none");
@@ -149,8 +179,23 @@ header.addEventListener("mouseover", () => {
 });
 
 header.addEventListener("mousemove", (event) => {
-    headerTooltip.style.left = (event.pageX + 10) + "px";
-    headerTooltip.style.top = (event.pageY + 10) + "px";
+    const tooltipWidth = headerTooltip.offsetWidth;
+    const tooltipHeight = headerTooltip.offsetHeight;
+    let x = event.pageX + 10;
+    let y = event.pageY + 10;
+
+    // Adjust if the tooltip exceeds the window width
+    if (x + tooltipWidth > window.innerWidth) {
+        x = window.innerWidth - tooltipWidth - 10;
+    }
+
+    // Adjust if the tooltip exceeds the window height
+    if (y + tooltipHeight > window.innerHeight) {
+        y = window.innerHeight - tooltipHeight - 10;
+    }
+
+    headerTooltip.style.left = x + "px";
+    headerTooltip.style.top = y + "px";
 });
 
 header.addEventListener("mouseout", () => {
