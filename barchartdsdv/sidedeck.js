@@ -20,9 +20,12 @@ function loadSideDeckCSV(svg, width, height, margin) {
             .data(parsedData)
             .enter().append("rect")
             .attr("class", "bar")
-            .attr("width", d => x(d.value))
+            .attr("width", 0)  // Start with width 0 for animation
             .attr("y", d => y(d.name))
-            .attr("height", y.bandwidth());
+            .attr("height", y.bandwidth())
+            .transition()  // Apply transition for animation
+            .duration(1000)  // Duration of the animation in milliseconds
+            .attr("width", d => x(d.value));
 
         svg.append("g")
             .attr("transform", `translate(0,${height})`)
