@@ -16,20 +16,40 @@ function loadSideDeckCSV(svg, width, height, margin) {
             .range([0, height])
             .padding(0.1);
 
+        const tooltip = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("position", "absolute")
+            .style("background", "#f4f4f4")
+            .style("border", "1px solid #d4d4d4")
+            .style("padding", "5px")
+            .style("border-radius", "8px")
+            .style("display", "none");
+
         svg.selectAll(".bar")
             .data(parsedData)
             .enter().append("rect")
             .attr("class", "bar")
-            .attr("width", 0)  // Start with width 0 for animation
+            .attr("width", 0)
             .attr("y", d => y(d.name))
             .attr("height", y.bandwidth())
-            .transition()  // Apply transition for animation
-            .duration(1000)  // Duration of the animation in milliseconds
+            .on("mouseover", function(event, d) {
+                tooltip.style("display", "block")
+                    .html(`Card: ${d.name}<br>Times Used: ${d.value}`);
+            })
+            .on("mousemove", function(event) {
+                tooltip.style("left", (event.pageX + 5) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function() {
+                tooltip.style("display", "none");
+            })
+            .transition()
+            .duration(1000)
             .attr("width", d => x(d.value));
 
         svg.append("g")
             .attr("transform", `translate(0,${height})`)
-            .call(d3.axisBottom(x));
+            .call(d3.axisBottom(x).ticks(5).tickFormat(d => `${d} times`));
 
         svg.append("g")
             .call(d3.axisLeft(y));
